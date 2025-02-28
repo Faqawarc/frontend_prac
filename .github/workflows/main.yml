@@ -1,6 +1,7 @@
 name: practice preview
 
 on:
+  workflow_dispatch:
   push:
     branches: master
 
@@ -15,3 +16,5 @@ jobs:
         with:
           html_file: 'index.html'
           job_summary: true
+      - name: Log HTML Preview URL
+        run: echo "${{ steps.html_preview.outputs.url }}"
